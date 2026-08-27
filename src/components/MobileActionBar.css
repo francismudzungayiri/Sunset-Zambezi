@@ -1,0 +1,49 @@
+.action-bar {
+  position: fixed;
+  inset-inline: 0;
+  inset-block-end: 0;
+  z-index: 80;
+  display: flex;
+  align-items: stretch;
+  gap: 1px;
+  padding: 0.75rem;
+  padding-block-end: calc(0.75rem + env(safe-area-inset-bottom, 0px));
+  background: rgba(14, 19, 17, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-block-start: 1px solid var(--hairline-dark);
+  transform: translate3d(0, 110%, 0);
+  transition: transform 480ms var(--ease-out);
+}
+
+.action-bar.is-visible { transform: none; }
+
+.action-bar__primary {
+  flex: 1;
+  min-height: 3.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ivory);
+  color: var(--ink);
+}
+
+.action-bar__whatsapp {
+  flex: none;
+  width: 3.25rem;
+  min-height: 3.25rem;
+  display: grid;
+  place-items: center;
+  color: var(--ivory);
+  border: 1px solid var(--hairline-dark);
+}
+
+.action-bar__whatsapp:hover { color: var(--bronze-lift); }
+
+@media (min-width: 62em) {
+  .action-bar { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .action-bar { transition: none; }
+}

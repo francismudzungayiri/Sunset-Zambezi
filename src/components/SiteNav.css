@@ -1,0 +1,177 @@
+.nav {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline: 0;
+  z-index: 90;
+  color: var(--ivory);
+  transition: background-color var(--dur-ui) var(--ease-out),
+    backdrop-filter var(--dur-ui) var(--ease-out),
+    box-shadow var(--dur-ui) var(--ease-out);
+}
+
+.nav.is-scrolled {
+  background: rgba(14, 19, 17, 0.82);
+  backdrop-filter: blur(14px) saturate(120%);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  box-shadow: 0 1px 0 rgba(242, 237, 227, 0.1);
+}
+
+.nav__bar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding: clamp(1rem, 2vw, 1.75rem) var(--gutter);
+}
+
+.nav__wordmark {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.nav__links { display: none; }
+
+.nav__links ul {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.25rem, 2.4vw, 2.5rem);
+}
+
+.nav__link {
+  position: relative;
+  display: inline-block;
+  padding-block: 0.5rem;
+  color: rgba(242, 237, 227, 0.86);
+  transition: color var(--dur-ui) var(--ease-out);
+}
+
+.nav__link::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: 0;
+  height: 1px;
+  background: var(--bronze-lift);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--dur-ui) var(--ease-out);
+}
+
+.nav__link:hover { color: var(--ivory); }
+.nav__link:hover::after { transform: scaleX(1); }
+
+.nav__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.nav__cta {
+  display: none;
+  min-height: 2.75rem;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid rgba(242, 237, 227, 0.42);
+  color: var(--ivory);
+  transition: background-color var(--dur-ui) var(--ease-out),
+    color var(--dur-ui) var(--ease-out), border-color var(--dur-ui) var(--ease-out);
+}
+
+.nav__cta:hover {
+  background: var(--ivory);
+  border-color: var(--ivory);
+  color: var(--ink);
+}
+
+/* --- Mobile toggle ---------------------------------------------------- */
+
+.nav__toggle {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-inline-end: -0.5rem;
+}
+
+.nav__toggle-bars {
+  display: block;
+  width: 22px;
+  height: 10px;
+  position: relative;
+}
+
+.nav__toggle-bars span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transition: transform var(--dur-ui) var(--ease-out), opacity var(--dur-ui) var(--ease-out);
+}
+
+.nav__toggle-bars span:first-child { top: 0; }
+.nav__toggle-bars span:last-child { bottom: 0; }
+
+.nav.is-open .nav__toggle-bars span:first-child { transform: translateY(4.5px) rotate(45deg); }
+.nav.is-open .nav__toggle-bars span:last-child { transform: translateY(-4.5px) rotate(-45deg); }
+
+/* --- Mobile sheet ------------------------------------------------------ */
+
+.nav__sheet {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-xl);
+  padding: var(--space-2xl) var(--gutter) var(--space-xl);
+  background: var(--ink);
+}
+
+.nav__sheet[hidden] { display: none; }
+
+.nav__sheet-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.nav__sheet-list li { border-block-end: 1px solid var(--hairline-dark); }
+.nav__sheet-list li:first-child { border-block-start: 1px solid var(--hairline-dark); }
+
+.nav__sheet-list a {
+  display: block;
+  padding-block: 1.125rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 8vw, 2.5rem);
+  line-height: 1.2;
+  color: var(--ivory);
+}
+
+.nav__sheet-cta {
+  align-self: flex-start;
+  min-height: 3.25rem;
+  padding: 1rem 2.25rem;
+  background: var(--ivory);
+  color: var(--ink);
+}
+
+/* --- Desktop ----------------------------------------------------------- */
+
+@media (min-width: 62em) {
+  .nav__links { display: block; }
+  .nav__cta { display: inline-flex; align-items: center; }
+  .nav__toggle { display: none; }
+  .nav__sheet { display: none !important; }
+}

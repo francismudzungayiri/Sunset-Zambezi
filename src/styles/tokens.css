@@ -1,0 +1,65 @@
+/* ==========================================================================
+   Sunset Zambezi — design tokens
+   Palette grounded in Lake Kariba: the drowned mopane forest, deep water at
+   dusk, shoreline sand and the bronze of low African light.
+   ========================================================================== */
+
+:root {
+  /* --- Colour ---------------------------------------------------------- */
+  --ink:        #0E1311;  /* near-black with a green cast: deep water at dusk */
+  --abyss:      #14201E;  /* deep Zambezi blue-green: panels, footer, nav     */
+  --abyss-lift: #1B2A27;  /* one step up from abyss, for hairlines on dark    */
+  --ivory:      #F2EDE3;  /* warm ivory: light ground                         */
+  --ivory-dim:  #E7E0D2;  /* ivory, one step down                             */
+  --sand:       #DCCFBB;  /* shoreline sand: hairlines, inactive              */
+  --stone:      #5A5046;  /* secondary text on ivory — 7.0:1 contrast         */
+  --bronze:     #A8763E;  /* accent for RULES, borders and focus rings only   */
+  --bronze-ink: #8A5A28;  /* bronze for small text on ivory - 5.0:1, AA       */
+  --bronze-lift:#C79A5F;  /* bronze for dark grounds — 5.4:1 on --ink         */
+
+  /* Text roles. --bronze is a RULE colour: at 3.4:1 on ivory it cannot carry
+     text at any size that matters, so small bronze type uses --bronze-ink
+     (5.0:1) and bronze type on dark grounds uses --bronze-lift.              */
+  --text-on-light:     var(--ink);
+  --text-on-light-dim: var(--stone);
+  --text-on-dark:      var(--ivory);
+  --text-on-dark-dim:  #B9B1A3;   /* 7.4:1 on --ink */
+
+  --hairline-light: rgba(14, 19, 17, 0.16);
+  --hairline-dark:  rgba(242, 237, 227, 0.18);
+
+  /* --- Type ------------------------------------------------------------ */
+  --font-display: 'Cormorant Garamond', 'Cormorant', Georgia, 'Times New Roman', serif;
+  --font-body: 'Jost', 'Futura', 'Century Gothic', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --step-hero: clamp(2.75rem, 7.2vw, 7.5rem);
+  --step-h2:   clamp(2.25rem, 4.6vw, 4.25rem);
+  --step-h3:   clamp(1.5rem, 2.2vw, 2.125rem);
+  --step-h4:   clamp(1.25rem, 1.5vw, 1.5rem);
+  --step-lead: clamp(1.0625rem, 1.15vw, 1.25rem);
+  --step-body: clamp(1rem, 1vw, 1.0625rem);
+  --step-small: 0.8125rem;
+  --step-label: 0.6875rem;
+
+  --tracking-label: 0.18em;
+  --tracking-wide: 0.09em;
+
+  /* --- Space ------------------------------------------------------------ */
+  --space-2xs: 0.375rem;
+  --space-xs: 0.75rem;
+  --space-sm: 1.25rem;
+  --space-md: 2rem;
+  --space-lg: 3.25rem;
+  --space-xl: 5rem;
+  --space-2xl: 7.5rem;
+
+  --section-y: clamp(4.5rem, 9vw, 9.5rem);
+  --gutter: clamp(1.25rem, 5vw, 5.5rem);
+  --measure: 46ch;
+  --max-width: 90rem;
+
+  /* --- Motion ----------------------------------------------------------- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-reveal: 900ms;
+  --dur-ui: 420ms;
+}

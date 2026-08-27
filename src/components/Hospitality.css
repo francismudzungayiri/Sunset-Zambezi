@@ -1,0 +1,90 @@
+.hosp {
+  background: var(--ivory);
+  padding-block: var(--section-y);
+}
+
+.hosp__inner {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.hosp__head {
+  max-width: 44rem;
+  margin-block-end: clamp(2.5rem, 5vw, 4rem);
+}
+
+.hosp__headline { margin-block: clamp(1.25rem, 2vw, 1.75rem) clamp(1.25rem, 2vw, 1.5rem); }
+
+.hosp__message { color: var(--stone); }
+
+/* --- Cluster ----------------------------------------------------------- */
+
+.hosp__cluster {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(0.75rem, 1.5vw, 1.5rem);
+  margin-block-end: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.hosp__shot--lead { grid-column: 1 / -1; }
+
+@media (min-width: 62em) {
+  .hosp__cluster {
+    grid-template-columns: repeat(12, 1fr);
+    align-items: start;
+    gap: clamp(1rem, 2vw, 2rem);
+  }
+
+  .hosp__shot--lead { grid-column: 1 / 8; }
+
+  /* Pushed down so the three shots never line up along one edge. */
+  .hosp__shot--tall {
+    grid-column: 8 / 12;
+    margin-block-start: clamp(2.5rem, 5vw, 5rem);
+  }
+
+  .hosp__shot--detail {
+    grid-column: 3 / 7;
+    margin-block-start: clamp(1rem, 2vw, 2rem);
+  }
+}
+
+/* --- Features ---------------------------------------------------------- */
+
+.hosp__features {
+  display: grid;
+  gap: 0;
+  border-block-start: 1px solid var(--bronze);
+}
+
+.hosp__feature {
+  padding-block: clamp(1.25rem, 2.5vw, 1.75rem);
+  border-block-end: 1px solid var(--hairline-light);
+}
+
+.hosp__feature-title {
+  color: var(--ink);
+  margin-block-end: 0.625rem;
+}
+
+.hosp__feature p {
+  color: var(--stone);
+  max-width: 34ch;
+}
+
+@media (min-width: 48em) {
+  .hosp__features {
+    grid-template-columns: repeat(3, 1fr);
+    border-block-end: 1px solid var(--hairline-light);
+  }
+
+  .hosp__feature {
+    border-block-end: 0;
+    border-inline-end: 1px solid var(--hairline-light);
+    padding-inline: clamp(1.25rem, 2.5vw, 2rem);
+  }
+
+  .hosp__feature:first-child { padding-inline-start: 0; }
+  .hosp__feature:last-child { border-inline-end: 0; }
+}

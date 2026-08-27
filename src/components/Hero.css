@@ -1,0 +1,155 @@
+.hero {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 100svh;
+  background: var(--ink);
+  color: var(--text-on-dark);
+  overflow: hidden;
+}
+
+/* --- Media ------------------------------------------------------------- */
+
+.hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 58%;
+  /* A very slow push-in. 24s is long enough that it reads as atmosphere
+     rather than as an animation. */
+  animation: hero-drift 24s var(--ease-out) forwards;
+}
+
+@keyframes hero-drift {
+  from { transform: scale(1.005); }
+  to   { transform: scale(1.075); }
+}
+
+/* Two scrims: a vertical one for the headline, and a slight left-weighted one
+   so the type never sits on the sun glitter. */
+.hero__scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, rgba(14, 19, 17, 0.92) 0%, rgba(14, 19, 17, 0.55) 32%, rgba(14, 19, 17, 0.12) 62%, rgba(14, 19, 17, 0.34) 100%),
+    linear-gradient(to right, rgba(14, 19, 17, 0.5) 0%, rgba(14, 19, 17, 0) 58%);
+}
+
+/* --- Content ----------------------------------------------------------- */
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  padding-block-end: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.hero__content { max-width: 62rem; }
+
+.hero__eyebrow {
+  color: var(--bronze-lift);
+  margin-block-end: clamp(1.25rem, 2.5vw, 2rem);
+}
+
+.hero__headline {
+  margin-block-end: clamp(1.5rem, 2.5vw, 2.25rem);
+  letter-spacing: -0.025em;
+  line-height: 0.94;
+  text-wrap: initial;
+}
+
+.hero__line { display: block; }
+
+.hero__supporting {
+  color: rgba(242, 237, 227, 0.88);
+  max-width: 40ch;
+  margin-block-end: clamp(2rem, 3.5vw, 2.75rem);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-block-end: clamp(2.5rem, 5vw, 4rem);
+}
+
+.hero__rule { opacity: 0.9; }
+
+/* --- Scroll cue -------------------------------------------------------- */
+
+.hero__scroll {
+  display: none;
+  align-items: center;
+  gap: 0.875rem;
+  padding-block: 1rem 0.5rem;
+  color: rgba(242, 237, 227, 0.7);
+  transition: color var(--dur-ui) var(--ease-out);
+}
+
+.hero__scroll:hover { color: var(--ivory); }
+
+.hero__scroll-line {
+  display: block;
+  width: 3.5rem;
+  height: 1px;
+  background: currentColor;
+  transform-origin: left center;
+  animation: scroll-cue 3.4s var(--ease-out) infinite;
+}
+
+@keyframes scroll-cue {
+  0%, 100% { transform: scaleX(0.45); opacity: 0.45; }
+  50%      { transform: scaleX(1);    opacity: 1; }
+}
+
+/* Entry sequence: the hero types itself in once, in order. */
+.hero__eyebrow,
+.hero__headline .hero__line,
+.hero__supporting,
+.hero__actions,
+.hero__rule,
+.hero__scroll {
+  animation-name: hero-rise;
+  animation-duration: 1100ms;
+  animation-timing-function: var(--ease-out);
+  animation-fill-mode: both;
+}
+
+@keyframes hero-rise {
+  from { opacity: 0; transform: translate3d(0, 18px, 0); }
+  to   { opacity: 1; transform: none; }
+}
+
+.hero__eyebrow { animation-delay: 120ms; }
+.hero__headline .hero__line:nth-child(1) { animation-delay: 240ms; }
+.hero__headline .hero__line:nth-child(2) { animation-delay: 340ms; }
+.hero__headline .hero__line:nth-child(3) { animation-delay: 440ms; }
+.hero__supporting { animation-delay: 600ms; }
+.hero__actions { animation-delay: 720ms; }
+.hero__rule { animation-delay: 840ms; }
+.hero__scroll { animation-delay: 960ms; }
+
+@media (min-width: 48em) {
+  .hero__scroll { display: inline-flex; }
+  .hero__inner { padding-block-end: clamp(2rem, 4vw, 3rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__img { animation: none; transform: none; }
+  .hero__scroll-line { animation: none; transform: scaleX(1); opacity: 0.8; }
+  .hero__eyebrow,
+  .hero__headline .hero__line,
+  .hero__supporting,
+  .hero__actions,
+  .hero__rule,
+  .hero__scroll { animation: none; opacity: 1; transform: none; }
+}

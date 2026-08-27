@@ -1,0 +1,66 @@
+.proof {
+  background: var(--ink);
+  color: var(--text-on-dark);
+}
+
+.proof__inner {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.proof__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.proof__item {
+  padding-block: clamp(1.75rem, 3.5vw, 2.75rem);
+  padding-inline-end: var(--space-sm);
+  border-block-end: 1px solid var(--hairline-dark);
+}
+
+/* Vertical hairlines between columns, never on the outer edges. */
+.proof__item:nth-child(odd) {
+  border-inline-end: 1px solid var(--hairline-dark);
+  padding-inline-end: var(--space-md);
+}
+
+.proof__item:nth-child(even) { padding-inline-start: var(--space-md); }
+.proof__item:nth-last-child(-n + 2) { border-block-end: 0; }
+
+.proof__value {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-block-end: 0.625rem;
+}
+
+.proof__unit {
+  font-size: 0.5em;
+  margin-inline-start: 0.2em;
+  color: var(--bronze-lift);
+  letter-spacing: 0;
+}
+
+.proof__label { color: var(--text-on-dark-dim); }
+
+@media (min-width: 48em) {
+  .proof__list { grid-template-columns: repeat(4, 1fr); }
+
+  .proof__item {
+    border-block-end: 0;
+    border-inline-end: 1px solid var(--hairline-dark);
+    padding-inline: var(--space-md);
+  }
+
+  .proof__item:first-child { padding-inline-start: 0; }
+  .proof__item:last-child { border-inline-end: 0; }
+
+  /* Reset the mobile odd/even rules so they cannot leak into the 4-up row. */
+  .proof__item:nth-child(odd),
+  .proof__item:nth-child(even) { padding-inline-start: var(--space-md); }
+  .proof__item:first-child { padding-inline-start: 0; }
+}

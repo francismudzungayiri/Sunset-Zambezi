@@ -1,0 +1,87 @@
+.feature {
+  background: var(--ivory);
+  padding-block: var(--section-y);
+  overflow: hidden;
+}
+
+.feature__grid {
+  display: grid;
+  gap: 0;
+}
+
+.feature__media { min-width: 0; }
+
+.feature__panel {
+  background: var(--abyss);
+  color: var(--text-on-dark);
+  padding: clamp(2rem, 5vw, 3.5rem) var(--gutter) clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.feature__headline {
+  margin-block: clamp(1rem, 2vw, 1.5rem) clamp(1.25rem, 2vw, 1.75rem);
+}
+
+.feature__copy {
+  color: var(--text-on-dark-dim);
+  max-width: 40ch;
+  margin-block-end: clamp(1.75rem, 3vw, 2.25rem);
+}
+
+/* --- Facts ------------------------------------------------------------- */
+
+.feature__facts {
+  display: grid;
+  gap: 0;
+  margin: 0 0 clamp(1.75rem, 3vw, 2.5rem);
+  border-block-start: 1px solid var(--hairline-dark);
+}
+
+.feature__fact {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  padding-block: 0.875rem;
+  border-block-end: 1px solid var(--hairline-dark);
+}
+
+.feature__fact dt { color: var(--text-on-dark-dim); }
+
+.feature__fact dd {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.125rem, 1.6vw, 1.5rem);
+  letter-spacing: -0.01em;
+  text-align: right;
+}
+
+.feature__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+@media (min-width: 62em) {
+  /* A plain 10-column grid: the photograph takes the first seven columns
+     (70% of the viewport, bleeding off the left edge) and the panel starts at
+     column seven, so it overlaps the image by one column. Expressed in equal
+     fractions on purpose - mixing 1fr with fixed and clamped tracks let the
+     browser resolve them all to near-equal widths and inverted the design. */
+  .feature__grid {
+    grid-template-columns: repeat(10, 1fr);
+    align-items: center;
+  }
+
+  .feature__media {
+    grid-column: 1 / 8;
+    grid-row: 1;
+  }
+
+  .feature__panel {
+    grid-column: 7 / 11;
+    grid-row: 1;
+    z-index: 1;
+    padding: clamp(2.5rem, 4vw, 4rem);
+    padding-inline-end: var(--gutter);
+  }
+}

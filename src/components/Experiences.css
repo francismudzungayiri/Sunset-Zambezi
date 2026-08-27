@@ -1,0 +1,118 @@
+.experiences {
+  background: var(--ivory-dim);
+  padding-block: var(--section-y);
+}
+
+.experiences__inner {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.experiences__head {
+  max-width: 46rem;
+  margin-block-end: clamp(3rem, 6vw, 5.5rem);
+}
+
+.experiences__headline {
+  margin-block: clamp(1.25rem, 2vw, 1.75rem) clamp(1.25rem, 2vw, 1.5rem);
+}
+
+.experiences__standfirst { color: var(--stone); }
+
+.experiences__list {
+  display: grid;
+  gap: clamp(3.5rem, 7vw, 7rem);
+}
+
+.experiences__rule { margin-block-start: clamp(3.5rem, 6vw, 6rem); }
+
+/* --- Row --------------------------------------------------------------- */
+
+.exp {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  align-items: center;
+}
+
+.exp__media-link { display: block; }
+
+.exp__body { max-width: 34rem; }
+
+/* --- The hour marker --------------------------------------------------- */
+
+.exp__time {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  margin-block-end: clamp(0.875rem, 1.5vw, 1.25rem);
+}
+
+.exp__time-value {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  color: var(--bronze-ink);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.exp__time-rule {
+  width: 2rem;
+  height: 1px;
+  background: var(--bronze);
+  opacity: 0.5;
+  flex: none;
+}
+
+.exp__time-note { color: var(--stone); }
+
+.exp__title {
+  margin-block-end: clamp(0.75rem, 1.5vw, 1rem);
+}
+
+.exp__title a {
+  transition: color var(--dur-ui) var(--ease-out);
+}
+
+.exp:hover .exp__title a { color: var(--bronze); }
+
+.exp__summary { margin-block-end: 0.875rem; }
+
+.exp__copy {
+  color: var(--stone);
+  max-width: 42ch;
+  margin-block-end: clamp(1.25rem, 2vw, 1.75rem);
+}
+
+.exp__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.exp__enquire {
+  min-height: 2.75rem;
+  padding-inline: 0;
+  color: var(--stone);
+  border-block-end: 1px solid transparent;
+  transition: color var(--dur-ui) var(--ease-out), border-color var(--dur-ui) var(--ease-out);
+}
+
+.exp__enquire:hover {
+  color: var(--ink);
+  border-block-end-color: var(--ink);
+}
+
+@media (min-width: 62em) {
+  .exp {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: clamp(2.5rem, 5vw, 5rem);
+  }
+
+  /* Alternate which side the photograph falls on. */
+  .exp--flip .exp__media { order: 2; }
+  .exp--flip .exp__body { order: 1; justify-self: end; }
+}

@@ -1,0 +1,99 @@
+.why {
+  background: var(--ink);
+  color: var(--text-on-dark);
+}
+
+/* --- Banner ------------------------------------------------------------ */
+
+.why__banner {
+  position: relative;
+  height: clamp(18rem, 46vw, 34rem);
+  overflow: hidden;
+}
+
+.why__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  will-change: transform;
+}
+
+.why__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(14, 19, 17, 0.4) 0%,
+    rgba(14, 19, 17, 0.1) 40%,
+    rgba(14, 19, 17, 0.85) 100%
+  );
+}
+
+/* --- Content ----------------------------------------------------------- */
+
+.why__inner {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  padding-block: clamp(3rem, 6vw, 5.5rem) var(--section-y);
+}
+
+.why__head {
+  max-width: 46rem;
+  margin-block-end: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.why__headline { margin-block-end: clamp(1.25rem, 2vw, 1.75rem); }
+
+.why__standfirst {
+  color: var(--text-on-dark-dim);
+  font-size: var(--step-lead);
+  line-height: 1.7;
+  max-width: 52ch;
+}
+
+.why__list {
+  display: grid;
+  gap: 0;
+  border-block-start: 1px solid var(--hairline-dark);
+}
+
+.why__point {
+  padding-block: clamp(1.5rem, 3vw, 2.25rem);
+  border-block-end: 1px solid var(--hairline-dark);
+}
+
+.why__point-title {
+  font-size: var(--step-h4);
+  margin-block-end: 0.75rem;
+  color: var(--bronze-lift);
+}
+
+.why__point-body {
+  color: var(--text-on-dark-dim);
+  max-width: 36ch;
+}
+
+@media (min-width: 48em) {
+  .why__list {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: clamp(2rem, 4vw, 3.5rem);
+  }
+}
+
+@media (min-width: 62em) {
+  .why__list {
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 0;
+    border-block-end: 1px solid var(--hairline-dark);
+  }
+
+  .why__point {
+    border-block-end: 0;
+    border-inline-end: 1px solid var(--hairline-dark);
+    padding-inline: clamp(1.25rem, 2.5vw, 2rem);
+  }
+
+  .why__point:first-child { padding-inline-start: 0; }
+  .why__point:last-child { border-inline-end: 0; }
+}

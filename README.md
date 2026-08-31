@@ -1,4 +1,4 @@
-# Sunset Zambezi
+# Melachaite Travel
 
 Homepage for a fictional luxury tour operator on Lake Kariba, Zimbabwe. Built with Vite + React (plain JavaScript).
 

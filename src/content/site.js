@@ -5,10 +5,10 @@
  */
 
 export const brand = {
-  name: 'Sunset Zambezi',
-  wordmark: 'SUNSET ZAMBEZI',
+  name: 'Melachaite Travel',
+  wordmark: 'MELACHAITE TRAVEL',
   tagline: 'Private adventures across Kariba and the Zambezi.',
-  legalName: 'Sunset Zambezi Safaris',
+  legalName: 'Melachaite Travel',
 };
 
 export const contact = {
@@ -16,7 +16,7 @@ export const contact = {
   phoneHref: '+263612954118',
   // WhatsApp deep link. Swap the number when the real line is provisioned.
   whatsapp: 'https://wa.me/263612954118',
-  email: 'hello@sunsetzambezi.com',
+  email: 'hello@melachaitetravel.com',
   place: 'Kariba, Zimbabwe',
   address: {
     street: 'Lakeview Road, Kariba Heights',
@@ -64,7 +64,7 @@ export const intro = {
   pullQuote:
     'Kariba is not simply a destination. It is an invitation to slow down, explore deeper and experience Zimbabwe from a different perspective.',
   body: [
-    'Sunset Zambezi runs a small number of private journeys each season. Our crews were born on this lake. They know which bays stay flat when the wind comes up the gorge, which channels the elephant herds cross at dusk, and which captain to send out with you.',
+    'Melachaite Travel runs a small number of private journeys each season. Our crews were born on this lake. They know which bays stay flat when the wind comes up the gorge, which channels the elephant herds cross at dusk, and which captain to send out with you.',
     'Every boat carries your party alone. Every itinerary is drawn around the way you actually want to travel - not around a departure schedule.',
   ],
   cta: 'Discover our story',
